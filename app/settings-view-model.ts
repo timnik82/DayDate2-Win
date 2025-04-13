@@ -3,8 +3,8 @@ import { Frame } from '@nativescript/core/ui/frame';
 import * as appSettings from '@nativescript/core/application-settings';
 
 export class SettingsViewModel extends ObservableBase {
-    private _fontSizes = [100, 110, 120, 130];
-    private _fontSizesText = ['100px', '110px', '120px', '130px'];
+    private _fontSizes = [100, 110, 120, 125, 130];
+    private _fontSizesText = ['100px', '110px', '120px', '125px', '130px'];
     private _fontStyles = ['sans-serif', 'serif', 'monospace'];
     private _shiftIntervals = ['3 segundos', '1 minuto', '5 minutos', '10 minutos'];
     private _shiftIntervalValues = [3, 60, 300, 600]; // Values in seconds

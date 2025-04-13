@@ -2,7 +2,7 @@
     <ScrollView orientation="horizontal">
         <StackLayout orientation="horizontal" class="p-4" width="auto">
             <!-- Font Settings Panel -->
-            <StackLayout class="m-4 p-4" width="300">
+            <StackLayout class="m-1 p-4" width="300">
                 <Label text="Font Settings" class="text-white text-xl mb-4"/>
                 
                 <Label text="Font Size" class="text-white mb-2"/>
@@ -23,7 +23,7 @@
             </StackLayout>
 
             <!-- Text Position Settings Panel -->
-            <StackLayout class="m-4 p-4" width="300">
+            <StackLayout class="m-1 p-4" width="300">
                 <Label text="Text Position" class="text-white text-xl mb-4"/>
                 
                 <Label text="Shift Interval" class="text-white mb-2"/>
@@ -52,7 +52,7 @@
             </StackLayout>
 
             <!-- Display Settings Panel -->
-            <StackLayout class="m-4 p-4" width="300">
+            <StackLayout class="m-1 p-4" width="300">
                 <Label text="Display Settings" class="text-white text-xl mb-4"/>
                 
                 <Label text="Night Mode (Sunset to Dawn)" class="text-white mb-2"/>

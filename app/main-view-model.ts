@@ -96,7 +96,7 @@ export class MainViewModel extends ObservableBase {
     }
     
     public updateFontSettings() {
-        const fontSizes = [100, 110, 120, 130];
+        const fontSizes = [100, 110, 120, 125, 130];
         const fontStyles = ['sans-serif', 'serif', 'monospace'];
         
         const sizeIndex = appSettings.getNumber('fontSize', 0); // Revert default back to 0
