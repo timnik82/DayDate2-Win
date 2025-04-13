@@ -39,14 +39,16 @@
                           keyboardType="number"
                           hint="Enter value (1-100)"
                           returnKeyType="done"
-                          class="mb-4 text-white text-center p-2"/>
+                          class="mb-4 text-white text-center p-2"
+                          returnPress="{{ saveSettings }}"/>
                 
                 <Label text="Vertical Shift (pixels)" class="text-white mb-2"/>
                 <TextField text="{{ shiftAmountY }}" 
                           keyboardType="number"
                           hint="Enter value (1-100)"
                           returnKeyType="done"
-                          class="mb-4 text-white text-center p-2"/>
+                          class="mb-4 text-white text-center p-2"
+                          returnPress="{{ saveSettings }}"/>
             </StackLayout>
 
             <!-- Display Settings Panel -->

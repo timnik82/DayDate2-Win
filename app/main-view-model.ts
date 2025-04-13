@@ -23,9 +23,8 @@ export class MainViewModel extends ObservableBase {
         
         // Initialize default values
         this.set('weekday', '');
-        this.set('fullDate', '');
-        this.set('fontSize', 80);
-        this.set('fontFamily', 'sans-serif');
+        this.set('date', '');
+        this.set('time', '');
         this.set('textShiftX', 0);
         this.set('textShiftY', 0);
         
@@ -33,9 +32,11 @@ export class MainViewModel extends ObservableBase {
         this.screenWidth = Screen.mainScreen.widthPixels;
         this.screenHeight = Screen.mainScreen.heightPixels;
         
+        // Load font settings first
+        this.updateFontSettings();
+        
         // Initial update
         this.updateDateTime();
-        this.updateFontSettings();
         
         // Set up periodic updates
         this.updateInterval = setInterval(() => this.updateDateTime(), 1000);
@@ -73,10 +74,14 @@ export class MainViewModel extends ObservableBase {
         const weekday = weekdays[date.getDay()];
         const month = months[date.getMonth()];
         const day = date.getDate();
-        const year = date.getFullYear();
+        
+        // Format time with leading zeros (without seconds)
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
         
         this.set('weekday', weekday);
-        this.set('fullDate', `${day} de ${month} de ${year}`);
+        this.set('date', `${day} de ${month}`);
+        this.set('time', `${hours}:${minutes}`);
         
         // Check if it's night time (between sunset and sunrise)
         // Simple approximation: Night is between 18:00 (6 PM) and 6:00 (6 AM)
@@ -91,17 +96,11 @@ export class MainViewModel extends ObservableBase {
     }
     
     public updateFontSettings() {
-        const fontSizes = [80, 120];
+        const fontSizes = [100, 110, 120, 130];
         const fontStyles = ['sans-serif', 'serif', 'monospace'];
         
-        const sizeIndex = appSettings.getNumber('fontSize', 0); // Default to first index (80px)
-        const styleIndex = appSettings.getNumber('fontStyle', 0);
-        
-        console.log('Updating font settings - initial:', {
-            sizeIndex,
-            fontSizes,
-            currentFontSize: this.get('fontSize')
-        });
+        const sizeIndex = appSettings.getNumber('fontSize', 0); // Revert default back to 0
+        const styleIndex = appSettings.getNumber('fontStyle', 0); // Revert default back to 0
         
         // Ensure we have valid indices
         const safeSizeIndex = Math.min(Math.max(0, sizeIndex), fontSizes.length - 1);
@@ -110,16 +109,11 @@ export class MainViewModel extends ObservableBase {
         const newFontSize = fontSizes[safeSizeIndex];
         const newFontFamily = fontStyles[safeStyleIndex];
         
-        console.log('Updating font settings - final:', { 
-            sizeIndex, 
-            safeSizeIndex, 
-            newFontSize,
-            fontSizes,
-            selectedSize: fontSizes[safeSizeIndex],
-            currentFontSize: this.get('fontSize')
-        });
+        // Force update the font size and family
+        this.notifyPropertyChange('fontSize', newFontSize);
+        this.notifyPropertyChange('fontFamily', newFontFamily);
         
-        // Update the font size and family
+        // Also set them normally to ensure they're updated
         this.set('fontSize', newFontSize);
         this.set('fontFamily', newFontFamily);
         

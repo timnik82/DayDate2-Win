@@ -3,8 +3,8 @@ import { Frame } from '@nativescript/core/ui/frame';
 import * as appSettings from '@nativescript/core/application-settings';
 
 export class SettingsViewModel extends ObservableBase {
-    private _fontSizes = [80, 120];
-    private _fontSizesText = ['80px', '120px'];
+    private _fontSizes = [100, 110, 120, 130];
+    private _fontSizesText = ['100px', '110px', '120px', '130px'];
     private _fontStyles = ['sans-serif', 'serif', 'monospace'];
     private _shiftIntervals = ['3 segundos', '1 minuto', '5 minutos', '10 minutos'];
     private _shiftIntervalValues = [3, 60, 300, 600]; // Values in seconds
@@ -71,19 +71,9 @@ export class SettingsViewModel extends ObservableBase {
     }
 
     public saveSettings() {
-        console.log('Saving settings...');
-        
         // Save font settings
         const fontSizeIndex = this.get('selectedFontSizeIndex');
         const safeFontSizeIndex = Math.min(Math.max(0, fontSizeIndex), this._fontSizes.length - 1);
-        
-        console.log('Saving font size:', {
-            requestedIndex: fontSizeIndex,
-            safeIndex: safeFontSizeIndex,
-            value: this._fontSizes[safeFontSizeIndex],
-            text: this._fontSizesText[safeFontSizeIndex]
-        });
-        
         appSettings.setNumber('fontSize', safeFontSizeIndex);
         
         const fontStyleIndex = this.get('selectedFontStyleIndex');
@@ -110,33 +100,6 @@ export class SettingsViewModel extends ObservableBase {
         const shiftAmountY = parseInt(this.get('shiftAmountY'), 10);
         const validShiftAmountY = isNaN(shiftAmountY) ? 5 : Math.max(1, Math.min(100, shiftAmountY));
         appSettings.setNumber('shiftAmountY', validShiftAmountY);
-
-        console.log('Settings saved:', {
-            fontSize: {
-                index: safeFontSizeIndex,
-                value: this._fontSizes[safeFontSizeIndex],
-                text: this._fontSizesText[safeFontSizeIndex]
-            },
-            fontStyle: {
-                index: safeFontStyleIndex,
-                value: this._fontStyles[safeFontStyleIndex]
-            },
-            autoNightMode,
-            textShifting,
-            shiftInterval: {
-                index: safeIntervalIndex,
-                value: this._shiftIntervalValues[safeIntervalIndex],
-                text: this._shiftIntervals[safeIntervalIndex]
-            },
-            shiftAmountX: {
-                input: this.get('shiftAmountX'),
-                final: validShiftAmountX
-            },
-            shiftAmountY: {
-                input: this.get('shiftAmountY'),
-                final: validShiftAmountY
-            }
-        });
 
         // Navigate back to main page
         Frame.topmost().goBack();

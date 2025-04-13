@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="34c3fee4-c043-404d-954f-c9e08b6fce0f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/platforms/android/.gradle/8.9/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/.gradle/8.9/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/.gradle/8.9/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/.gradle/8.9/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/.gradle/8.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/.gradle/8.9/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/.gradle/8.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/.gradle/8.9/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/.nsprepareinfo" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/.nsprepareinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/intermediates/assets/debug/mergeDebugAssets/app/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/intermediates/assets/debug/mergeDebugAssets/app/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/app/bundle.js.jar" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/intermediates/compressed_assets/debug/compressDebugAssets/out/assets/app/bundle.js.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/intermediates/dex_metadata_directory/release/compileReleaseArtProfile/0/.dm" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/intermediates/dex_metadata_directory/release/compileReleaseArtProfile/0/.dm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/intermediates/dex_metadata_directory/release/compileReleaseArtProfile/1/.dm" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/intermediates/dex_metadata_directory/release/compileReleaseArtProfile/1/.dm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/debug/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/debug/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/release/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/release/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/outputs/apk/.nsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/outputs/apk/.nsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/outputs/apk/.nshashes" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/outputs/apk/.nshashes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/assets/app/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/app/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/assets/app/runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/app/runtime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/build-tools/sbg-interface-names.txt" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/build-tools/sbg-interface-names.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2vdGSK0Qh1my1rX85tKWAq2zbCc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/timni/Cursor Projects/DayDate 2"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34c3fee4-c043-404d-954f-c9e08b6fce0f" name="Changes" comment="" />
+      <created>1744467535923</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744467535923</updated>
+    </task>
+    <servers />
+  </component>
+</project>
