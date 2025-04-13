@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "org.nativescript.dateday.app-mergeDebugResources-30:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\timni\\.gradle\\caches\\8.9\\transforms\\3d2923cd8ce2548aab2d46ca26707d32\\transformed\\appcompat-1.7.0\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+org.nativescript.dateday.app-core-runtime-2.2.0-0 C:\Users\timni\.gradle\caches\8.9\transforms\03a59d009af7c309f75e0d89696f982c\transformed\core-runtime-2.2.0\res
+org.nativescript.dateday.app-lifecycle-viewmodel-2.6.2-1 C:\Users\timni\.gradle\caches\8.9\transforms\0c0224de056b2be1878fbf543504ba6e\transformed\lifecycle-viewmodel-2.6.2\res
+org.nativescript.dateday.app-jetified-emoji2-1.3.0-2 C:\Users\timni\.gradle\caches\8.9\transforms\202c4a6f34f18c91e9789ed34bfa656b\transformed\jetified-emoji2-1.3.0\res
+org.nativescript.dateday.app-jetified-profileinstaller-1.3.1-3 C:\Users\timni\.gradle\caches\8.9\transforms\20f2b6fbd1b4c3c473aa6be873c4adf6\transformed\jetified-profileinstaller-1.3.1\res
+org.nativescript.dateday.app-core-1.13.0-4 C:\Users\timni\.gradle\caches\8.9\transforms\2a9780d11f2bb1e50c106a69deaa0641\transformed\core-1.13.0\res
+org.nativescript.dateday.app-appcompat-1.7.0-5 C:\Users\timni\.gradle\caches\8.9\transforms\3d2923cd8ce2548aab2d46ca26707d32\transformed\appcompat-1.7.0\res
+org.nativescript.dateday.app-recyclerview-1.1.0-6 C:\Users\timni\.gradle\caches\8.9\transforms\4133334adcc28a18559e1066597c3539\transformed\recyclerview-1.1.0\res
+org.nativescript.dateday.app-jetified-viewpager2-1.0.0-7 C:\Users\timni\.gradle\caches\8.9\transforms\53f73f92aac9b77dc349514d0b7b75c1\transformed\jetified-viewpager2-1.0.0\res
+org.nativescript.dateday.app-fragment-1.8.5-8 C:\Users\timni\.gradle\caches\8.9\transforms\5a471fb99780cac9af95fc25f3a25c6f\transformed\fragment-1.8.5\res
+org.nativescript.dateday.app-jetified-core-ktx-1.13.0-9 C:\Users\timni\.gradle\caches\8.9\transforms\777891e9f100c3fe459ad778fe00bd3a\transformed\jetified-core-ktx-1.13.0\res
+org.nativescript.dateday.app-lifecycle-runtime-2.6.2-10 C:\Users\timni\.gradle\caches\8.9\transforms\93bd9c75d6271ea6aecc289d1b4a93a6\transformed\lifecycle-runtime-2.6.2\res
+org.nativescript.dateday.app-jetified-core-11 C:\Users\timni\.gradle\caches\8.9\transforms\9b66fd21e7edb94ef0ef39f0ccf2cfec\transformed\jetified-core\res
+org.nativescript.dateday.app-jetified-annotation-experimental-1.4.0-12 C:\Users\timni\.gradle\caches\8.9\transforms\9e0c4753a44584a08ae19b72593cd1aa\transformed\jetified-annotation-experimental-1.4.0\res
+org.nativescript.dateday.app-jetified-activity-1.8.1-13 C:\Users\timni\.gradle\caches\8.9\transforms\a45bb2e312f8f14c02513ecdc1c509c1\transformed\jetified-activity-1.8.1\res
+org.nativescript.dateday.app-jetified-savedstate-1.2.1-14 C:\Users\timni\.gradle\caches\8.9\transforms\bbfdf3d9ef68074d951db76acf1d4f23\transformed\jetified-savedstate-1.2.1\res
+org.nativescript.dateday.app-jetified-lifecycle-process-2.6.2-15 C:\Users\timni\.gradle\caches\8.9\transforms\c2bd39704d06e29c6726fc5f50df9e1b\transformed\jetified-lifecycle-process-2.6.2\res
+org.nativescript.dateday.app-jetified-startup-runtime-1.1.1-16 C:\Users\timni\.gradle\caches\8.9\transforms\cd92460dfd507ad73e3afb92dfb2185f\transformed\jetified-startup-runtime-1.1.1\res
+org.nativescript.dateday.app-jetified-appcompat-resources-1.7.0-17 C:\Users\timni\.gradle\caches\8.9\transforms\cdca7a773d9cd3ffeca4c26186069666\transformed\jetified-appcompat-resources-1.7.0\res
+org.nativescript.dateday.app-lifecycle-livedata-2.6.2-18 C:\Users\timni\.gradle\caches\8.9\transforms\dc71bc831ff445bbae6ac03224cdd416\transformed\lifecycle-livedata-2.6.2\res
+org.nativescript.dateday.app-jetified-lifecycle-viewmodel-savedstate-2.6.2-19 C:\Users\timni\.gradle\caches\8.9\transforms\df195654a3d67f7efbbb5c84d35e6ed8\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.2\res
+org.nativescript.dateday.app-lifecycle-livedata-core-2.6.2-20 C:\Users\timni\.gradle\caches\8.9\transforms\df4e7c9bc854a8e2a60ab3e5a50c5f7d\transformed\lifecycle-livedata-core-2.6.2\res
+org.nativescript.dateday.app-transition-1.5.1-21 C:\Users\timni\.gradle\caches\8.9\transforms\e50ed971a15bf005dcf205c0d0621d0f\transformed\transition-1.5.1\res
+org.nativescript.dateday.app-jetified-emoji2-views-helper-1.3.0-22 C:\Users\timni\.gradle\caches\8.9\transforms\e779e0f27b37a0def73532019194c259\transformed\jetified-emoji2-views-helper-1.3.0\res
+org.nativescript.dateday.app-pngs-23 C:\Users\timni\Cursor Projects\DayDate 2\platforms\android\app\build\generated\res\pngs\release
+org.nativescript.dateday.app-resValues-24 C:\Users\timni\Cursor Projects\DayDate 2\platforms\android\app\build\generated\res\resValues\release
+org.nativescript.dateday.app-packageReleaseResources-25 C:\Users\timni\Cursor Projects\DayDate 2\platforms\android\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+org.nativescript.dateday.app-packageReleaseResources-26 C:\Users\timni\Cursor Projects\DayDate 2\platforms\android\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+org.nativescript.dateday.app-release-27 C:\Users\timni\Cursor Projects\DayDate 2\platforms\android\app\build\intermediates\merged_res\release\mergeReleaseResources
+org.nativescript.dateday.app-main-28 C:\Users\timni\Cursor Projects\DayDate 2\platforms\android\app\src\main\res
+org.nativescript.dateday.app-release-29 C:\Users\timni\Cursor Projects\DayDate 2\platforms\android\app\src\release\res

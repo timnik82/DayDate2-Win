@@ -1,0 +1,14 @@
+{
+	"name": "dateday-app",
+	"id": "org.nativescript.dateday",
+	"appPath": "app",
+	"appResourcesPath": "../../tools/assets/App_Resources",
+	"android": {
+		"v8Flags": "--expose_gc",
+		"markingMode": "none",
+		"minSdkVersion": 24,
+		"targetSdkVersion": 24,
+		"requiresUserPermission": false
+	},
+	"main": "bundle"
+}

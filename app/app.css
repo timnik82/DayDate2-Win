@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General styles */
+.bg-black {
+    background-color: black;
+}
+
+TimePicker {
+    color: white;
+    background-color: #333333;
+    padding: 12;
+    font-size: 18;
+}
+
+TimePicker[platform=android] {
+    color: white;
+    background-color: #333333;
+}
