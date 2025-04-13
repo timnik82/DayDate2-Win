@@ -181,15 +181,11 @@ export class MainViewModel extends ObservableBase {
             const frequency = appSettings.getNumber('shiftFrequency', 60) * 1000; // Convert to milliseconds
             const amountX = appSettings.getNumber('shiftAmountX', 10);
             const amountY = appSettings.getNumber('shiftAmountY', 5);
-            const fontSize = this.get('fontSize');
             
             console.log('Setting up text shifting:', { 
                 frequency, 
                 amountX, 
-                amountY, 
-                fontSize,
-                containerWidth: this.containerWidth,
-                containerHeight: this.containerHeight
+                amountY
             });
             
             // Clear any existing interval
@@ -199,47 +195,29 @@ export class MainViewModel extends ObservableBase {
             
             // Set up new interval
             this.shiftInterval = setInterval(() => {
-                // Only proceed if we have valid container dimensions
-                if (this.containerWidth <= 0 || this.containerHeight <= 0) {
-                    console.log('Container dimensions not yet available');
-                    return;
-                }
-
-                // Calculate safe boundaries based on font size and container dimensions
-                const textWidth = fontSize * 12; // Increased width multiplier for longer text
-                const textHeight = fontSize * 2.4; // Account for both labels (weekday and date)
-                
-                // Calculate maximum allowed shift to keep text within container bounds
-                const maxShiftX = Math.min(amountX, (this.containerWidth - textWidth) / 2);
-                const maxShiftY = Math.min(amountY, (this.containerHeight - textHeight) / 2);
-                
-                // Generate random angle between 0 and 2π (full circle)
-                const angle = Math.random() * 2 * Math.PI;
-                
-                // Calculate random distance from 0 to max shift for that direction
-                const distance = Math.random();
-                
-                // Calculate x and y components based on angle and distance
-                const x = Math.cos(angle) * distance * maxShiftX;
-                const y = Math.sin(angle) * distance * maxShiftY;
+                // Calculate random position within the allowed shift amounts
+                const x = (Math.random() - 0.5) * amountX;
+                const y = (Math.random() - 0.5) * amountY;
                 
                 console.log('Shifting text:', { 
                     x, 
                     y,
-                    angle: (angle * 180 / Math.PI).toFixed(2) + '°',
-                    distance,
-                    maxShiftX,
-                    maxShiftY,
-                    textWidth,
-                    textHeight,
-                    containerWidth: this.containerWidth,
-                    containerHeight: this.containerHeight
+                    amountX,
+                    amountY
                 });
                 
+                // Apply the shift values
                 this.set('textShiftX', x);
                 this.set('textShiftY', y);
+                
+                // Log the actual values being applied
+                console.log('Applied shift values:', {
+                    textShiftX: this.get('textShiftX'),
+                    textShiftY: this.get('textShiftY')
+                });
             }, frequency);
         } else {
+            // Reset shift values when shifting is disabled
             this.set('textShiftX', 0);
             this.set('textShiftY', 0);
         }

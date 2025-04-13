@@ -1,57 +1,66 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-black" actionBarHidden="true">
-    <ScrollView>
-        <StackLayout class="p-4">
-            <Label text="Settings" class="text-white text-2xl mb-4"/>
-            
-            <!-- Font Size -->
-            <Label text="Font Size" class="text-white mb-2"/>
-            <ListPicker items="{{ fontSizes }}" 
-                       selectedIndex="{{ selectedFontSizeIndex }}" 
-                       class="mb-4 text-white text-center p-2"
-                       height="120"
-                       color="white"
-                       backgroundColor="black"/>
-            
-            <!-- Font Style -->
-            <Label text="Font Style" class="text-white mb-2"/>
-            <ListPicker items="{{ fontStyles }}" 
-                       selectedIndex="{{ selectedFontStyleIndex }}" 
-                       class="mb-4 text-white text-center p-2"
-                       height="120"
-                       color="white"
-                       backgroundColor="black"/>
-            
-            <!-- Night Mode -->
-            <Label text="Night Mode (Sunset to Dawn)" class="text-white mb-2"/>
-            <Switch checked="{{ autoNightMode }}" class="mb-4"/>
-            
-            <!-- Text Position Shifting -->
-            <Label text="Shift Interval" class="text-white mb-2"/>
-            <ListPicker items="{{ shiftIntervals }}" 
-                       selectedIndex="{{ selectedShiftIntervalIndex }}" 
-                       class="mb-4 text-white text-center p-2"
-                       height="120"
-                       color="white"
-                       backgroundColor="black"/>
-            
-            <Label text="Horizontal Shift (pixels)" class="text-white mb-2"/>
-            <TextField text="{{ shiftAmountX }}" 
-                      keyboardType="number"
-                      hint="Enter value (1-100)"
-                      returnKeyType="done"
-                      class="mb-4 text-white text-center p-2"/>
-            
-            <Label text="Vertical Shift (pixels)" class="text-white mb-2"/>
-            <TextField text="{{ shiftAmountY }}" 
-                      keyboardType="number"
-                      hint="Enter value (1-100)"
-                      returnKeyType="done"
-                      class="mb-4 text-white text-center p-2"/>
-            
-            <!-- Save Button -->
-            <Button text="Save Settings" 
-                   tap="{{ saveSettings }}" 
-                   class="bg-white text-black mt-4 p-3"/>
+    <ScrollView orientation="horizontal">
+        <StackLayout orientation="horizontal" class="p-4" width="auto">
+            <!-- Font Settings Panel -->
+            <StackLayout class="m-4 p-4" width="300">
+                <Label text="Font Settings" class="text-white text-xl mb-4"/>
+                
+                <Label text="Font Size" class="text-white mb-2"/>
+                <ListPicker items="{{ fontSizes }}" 
+                           selectedIndex="{{ selectedFontSizeIndex }}" 
+                           class="mb-4 text-white text-center p-2"
+                           height="120"
+                           color="white"
+                           backgroundColor="black"/>
+                
+                <Label text="Font Style" class="text-white mb-2"/>
+                <ListPicker items="{{ fontStyles }}" 
+                           selectedIndex="{{ selectedFontStyleIndex }}" 
+                           class="mb-4 text-white text-center p-2"
+                           height="120"
+                           color="white"
+                           backgroundColor="black"/>
+            </StackLayout>
+
+            <!-- Text Position Settings Panel -->
+            <StackLayout class="m-4 p-4" width="300">
+                <Label text="Text Position" class="text-white text-xl mb-4"/>
+                
+                <Label text="Shift Interval" class="text-white mb-2"/>
+                <ListPicker items="{{ shiftIntervals }}" 
+                           selectedIndex="{{ selectedShiftIntervalIndex }}" 
+                           class="mb-4 text-white text-center p-2"
+                           height="120"
+                           color="white"
+                           backgroundColor="black"/>
+                
+                <Label text="Horizontal Shift (pixels)" class="text-white mb-2"/>
+                <TextField text="{{ shiftAmountX }}" 
+                          keyboardType="number"
+                          hint="Enter value (1-100)"
+                          returnKeyType="done"
+                          class="mb-4 text-white text-center p-2"/>
+                
+                <Label text="Vertical Shift (pixels)" class="text-white mb-2"/>
+                <TextField text="{{ shiftAmountY }}" 
+                          keyboardType="number"
+                          hint="Enter value (1-100)"
+                          returnKeyType="done"
+                          class="mb-4 text-white text-center p-2"/>
+            </StackLayout>
+
+            <!-- Display Settings Panel -->
+            <StackLayout class="m-4 p-4" width="300">
+                <Label text="Display Settings" class="text-white text-xl mb-4"/>
+                
+                <Label text="Night Mode (Sunset to Dawn)" class="text-white mb-2"/>
+                <Switch checked="{{ autoNightMode }}" class="mb-4"/>
+                
+                <!-- Save Button -->
+                <Button text="Save Settings" 
+                       tap="{{ saveSettings }}" 
+                       class="bg-white text-black mt-4 p-3"/>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </Page>
