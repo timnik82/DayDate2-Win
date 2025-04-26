@@ -24,7 +24,7 @@
                    fontSize="{{ fontSize }}"
                    fontFamily="{{ fontFamily }}"
                    color="{{ textColor }}"
-                   fontWeight="400"
+                   fontWeight="600"
                    textWrap="true"
                    translateX="{{ textShiftX }}"
                    translateY="{{ textShiftY }}"/>

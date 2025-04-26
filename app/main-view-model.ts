@@ -76,17 +76,19 @@ export class MainViewModel extends ObservableBase {
         const day = date.getDate();
         
         // Format time with leading zeros (without seconds)
-        const hours = date.getHours().toString().padStart(2, '0');
-        const minutes = date.getMinutes().toString().padStart(2, '0');
+        let hours24 = date.getHours();
+        let hours12 = hours24 % 12;
+        hours12 = hours12 ? hours12 : 12; // the hour '0' should be '12'
+        const hoursFormatted = hours12.toString();
+        const minutesFormatted = date.getMinutes().toString().padStart(2, '0');
         
         this.set('weekday', weekday);
         this.set('date', `${day} de ${month}`);
-        this.set('time', `${hours}:${minutes}`);
+        this.set('time', `${hoursFormatted}:${minutesFormatted}`);
         
         // Check if it's night time (between sunset and sunrise)
         // Simple approximation: Night is between 18:00 (6 PM) and 6:00 (6 AM)
-        const hour = date.getHours();
-        const isNightTime = hour >= 18 || hour < 6;
+        const isNightTime = hours24 >= 18 || hours24 < 6;
         
         if (appSettings.getBoolean('autoNightMode', false) && isNightTime) {
             this.set('textColor', '#808080'); // Dimmed text for night mode
