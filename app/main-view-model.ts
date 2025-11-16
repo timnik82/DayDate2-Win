@@ -71,11 +71,8 @@ export class MainViewModel extends ObservableBase {
             });
         }
         
-        // Initial calculation after a short delay to ensure layout is complete
-        setTimeout(() => {
-            this.calculateMaxLabelDimensions();
-            this.setupTextShifting();
-        }, 100);
+        // Initial calculation will be triggered by layoutChanged event
+        // No need for setTimeout as layoutChanged handles initial layout
     }
     
     private calculateMaxLabelDimensions() {
@@ -103,7 +100,7 @@ export class MainViewModel extends ObservableBase {
                     const size = label.getActualSize();
                     if (size && size.width > 0 && size.height > 0) {
                         maxWidth = Math.max(maxWidth, size.width);
-                        maxHeight = Math.max(maxHeight, size.height);
+                        maxHeight += size.height; // Sum heights for vertical layout
                     }
                 } catch (e) {
                     console.log('Could not get label size:', e);
@@ -304,8 +301,10 @@ export class MainViewModel extends ObservableBase {
         const containerH = this.containerHeight > 0 ? this.containerHeight : this.screenHeight;
         
         // If label dimensions aren't available, estimate based on font size
-        const labelW = this.maxLabelWidth > 0 ? this.maxLabelWidth : ((this.get('fontSize') || 120) * 1.2 * 12);
-        const labelH = this.maxLabelHeight > 0 ? this.maxLabelHeight : ((this.get('fontSize') || 120) * 4);
+        // Use consistent estimation logic with calculateMaxLabelDimensions
+        const fontSize = this.get('fontSize') || 120;
+        const labelW = this.maxLabelWidth > 0 ? this.maxLabelWidth : (fontSize * 1.2 * 12);
+        const labelH = this.maxLabelHeight > 0 ? this.maxLabelHeight : ((fontSize * 1.2) + fontSize + fontSize + (fontSize * 0.5));
         
         // Calculate available space from center to edge
         // Labels are centered, so available space is (container - label) / 2
