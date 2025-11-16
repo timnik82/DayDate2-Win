@@ -1,104 +1,36 @@
-# DayDate2-Win
+# DayDate2
 
-A NativeScript app that provides a compact Day/Date app designed for Windows and Android. This repository contains the app sources and platform build files. It supports building via NativeScript/webpack and deployment to Android devices.
+DayDate2 is a simple Day & Date app for Android and Windows. It shows the current day and date with a minimal interface — no sign-in required.
 
-## Project Structure
+## Quick Start (Android)
 
-- `app/` — main application source code (XML, TypeScript, CSS)
-- `App_Resources/` — platform-specific resources
-- `platforms/` — build output for Android (auto-generated)
-- `tempPlugin/` — helper plugin or local plugin used by the app
-- `package.json`, `project.json` — package and project configuration
-- `nativescript.config.ts` — NativeScript configuration
-
-## Prerequisites
-
-- Node.js (16+/18 recommended)
-- NativeScript CLI
-- Java Development Kit (JDK) for Android builds
-- Android SDK and platform tools
-- Gradle (Android build uses the included wrapper)
-- A connected Android device or emulator for `ns run android`.
-
-## Setup
-
-Install dependencies:
+- Download or build the APK and install it on your Android device:
 
 ```powershell
-npm install
-```
-
-Update environment variables for Android build if needed (ANDROID_HOME, ANDROID_SDK_ROOT, JAVA_HOME). If you need to run the app on Windows, follow platform-specific setup in `App_Resources`.
-
-## Build
-
-To prepare a debug Android build (build results placed in `platforms/android/app/build/outputs/apk/debug/`):
-
-```powershell
+# Build the debug APK (if needed)
 ns build android
+
+# Install the APK (replace path if needed)
+adb install -r "platforms/android/app/build/outputs/apk/debug/app-debug.apk"
 ```
 
-For a release build follow your app-signing steps:
+- If installing from your device directly, enable installation from unknown sources or use Google Play if published.
 
-```powershell
-# Replace with the proper args and keystore info
-ns build android --release --key-store-path "<keystore-path>" --key-store-password "<password>" \
-  --key-store-alias "<alias>" --key-store-alias-password "<alias-password>"
-```
+## Using the App
 
-## Deploy to Connected Android Device (Overwrite existing app)
+- Open DayDate2 and it will show the current day and date.
+- No account or network connection is required for daily use.
 
-Identify the target device:
+## Troubleshooting
 
-```powershell
-ns device android
-```
+- If the app won't install: ensure your device allows installation from the source and that `adb` is available in your PATH.
+- If the app crashes: try restarting your device and reinstalling the APK.
 
-Build and deploy (this will overwrite the existing app on the connected device):
+## Support
 
-```powershell
-ns run android --device <device-identifier>
-# or
-ns run android --device
-# to select interactive device if multiple connected
-```
-
-If you already built and have the APK, you can install it manually via adb:
-
-```powershell
-adb install -r -d "platforms/android/app/build/outputs/apk/debug/app-debug.apk"
-```
-
-- `-r` replaces the app if already installed.
-- `-d` allows version downgrades if necessary.
-
-## Running & Debugging
-
-To run the app directly with quick dev changes:
-
-```powershell
-ns run android --emulator
-# or hot-reload on device
-ns run android --device
-```
-
-Use Chrome DevTools (inspector) to debug the app on the device with NativeScript inspector support as needed.
-
-## Contributing
-
-- Branch from `Text-Crop` or the appropriate feature branch.
-- Follow a small commit message style `type: description` (e.g., `feat: add new feature`).
-- Format code before PRs: `npm run format` (if available in project config).
-
-## Notes
-
-- This project uses NativeScript and webpack for bundling. The `platforms/` folder is generated and should not be committed unless explicitly needed.
-- If you want a backup before destructive operations (e.g., resets), use `git stash` or create a temporary WIP branch.
-
-## License
-
-This project may contain a license in the repository root; check `LICENSE` (or be sure to add your chosen license file).
+- For issues or feature requests, open an issue in this GitHub repository: https://github.com/timnik82/DayDate2-Win/issues
+- Check the project license in `LICENSE`.
 
 ---
 
-If you want the README to be narrower in scope or include more detail like a demo GIF, internal architecture, or CI commands, tell me what you'd like and I will update it.
+If you'd like a screenshot, store link, or a translated short description added, tell me and I’ll update the README further.
