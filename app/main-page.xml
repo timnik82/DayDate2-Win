@@ -1,7 +1,8 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" navigatingFrom="navigatingFrom" class="bg-black" actionBarHidden="true">
     <GridLayout rows="*" columns="*" class="bg-black">
         <StackLayout id="textContainer" row="0" verticalAlignment="center" horizontalAlignment="center" width="100%" height="100%" class="bg-black">
-            <Label text="{{ weekday }}" 
+            <Label id="weekdayLabel"
+                   text="{{ weekday }}" 
                    class="text-center" 
                    fontSize="{{ fontSize * 1.2 }}"
                    fontFamily="{{ fontFamily }}"
@@ -10,7 +11,8 @@
                    textWrap="true"
                    translateX="{{ textShiftX }}"
                    translateY="{{ textShiftY }}"/>
-            <Label text="{{ date }}" 
+            <Label id="dateLabel"
+                   text="{{ date }}" 
                    class="text-center" 
                    fontSize="{{ fontSize }}"
                    fontFamily="{{ fontFamily }}"
@@ -19,7 +21,8 @@
                    textWrap="true"
                    translateX="{{ textShiftX }}"
                    translateY="{{ textShiftY }}"/>
-            <Label text="{{ time }}" 
+            <Label id="timeLabel"
+                   text="{{ time }}" 
                    class="text-center" 
                    fontSize="{{ fontSize }}"
                    fontFamily="{{ fontFamily }}"

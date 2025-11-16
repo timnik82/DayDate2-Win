@@ -5,6 +5,7 @@ import { android as androidApp } from '@nativescript/core/application';
 import { Screen } from '@nativescript/core/platform';
 import { Page } from '@nativescript/core/ui/page';
 import { StackLayout } from '@nativescript/core/ui/layouts/stack-layout';
+import { Label } from '@nativescript/core/ui/label';
 
 declare const android: any;
 
@@ -16,6 +17,8 @@ export class MainViewModel extends ObservableBase {
     private screenHeight: number;
     private containerWidth: number = 0;
     private containerHeight: number = 0;
+    private maxLabelWidth: number = 0;
+    private maxLabelHeight: number = 0;
     private page: Page;
     
     constructor() {
@@ -53,17 +56,80 @@ export class MainViewModel extends ObservableBase {
             container.on('layoutChanged', () => {
                 this.containerWidth = container.getActualSize().width;
                 this.containerHeight = container.getActualSize().height;
+                
+                // Calculate maximum label dimensions to prevent cropping
+                this.calculateMaxLabelDimensions();
+                
                 console.log('Container size updated:', {
                     width: this.containerWidth,
-                    height: this.containerHeight
+                    height: this.containerHeight,
+                    maxLabelWidth: this.maxLabelWidth,
+                    maxLabelHeight: this.maxLabelHeight
                 });
                 // Restart text shifting with new bounds
                 this.setupTextShifting();
             });
         }
         
-        // Start text shifting if enabled
-        this.setupTextShifting();
+        // Initial calculation after a short delay to ensure layout is complete
+        setTimeout(() => {
+            this.calculateMaxLabelDimensions();
+            this.setupTextShifting();
+        }, 100);
+    }
+    
+    private calculateMaxLabelDimensions() {
+        if (!this.page) {
+            // Fallback: estimate based on font size
+            const fontSize = this.get('fontSize') || 120;
+            this.maxLabelWidth = fontSize * 8;
+            this.maxLabelHeight = fontSize * 4;
+            return;
+        }
+        
+        // Try to get labels by ID
+        const weekdayLabel = this.page.getViewById('weekdayLabel') as Label;
+        const dateLabel = this.page.getViewById('dateLabel') as Label;
+        const timeLabel = this.page.getViewById('timeLabel') as Label;
+        
+        let maxWidth = 0;
+        let maxHeight = 0;
+        let foundAnyLabel = false;
+        
+        [weekdayLabel, dateLabel, timeLabel].forEach(label => {
+            if (label) {
+                foundAnyLabel = true;
+                try {
+                    const size = label.getActualSize();
+                    if (size && size.width > 0 && size.height > 0) {
+                        maxWidth = Math.max(maxWidth, size.width);
+                        maxHeight = Math.max(maxHeight, size.height);
+                    }
+                } catch (e) {
+                    console.log('Could not get label size:', e);
+                }
+            }
+        });
+        
+        // If we couldn't get actual sizes, estimate based on font size
+        if (!foundAnyLabel || maxWidth === 0 || maxHeight === 0) {
+            const fontSize = this.get('fontSize') || 120;
+            // Rough estimate: assume text is about 8-10 characters wide per font size unit
+            // Weekday is 1.2x font size, date and time are 1x font size
+            // Estimate width based on longest text (weekday names can be long)
+            maxWidth = fontSize * 1.2 * 12; // Approximate width for longest weekday name
+            // Height is sum of all three labels with some spacing
+            maxHeight = (fontSize * 1.2) + fontSize + fontSize + (fontSize * 0.5); // Labels + spacing
+        }
+        
+        this.maxLabelWidth = maxWidth;
+        this.maxLabelHeight = maxHeight;
+        
+        console.log('Calculated label dimensions:', {
+            maxWidth: this.maxLabelWidth,
+            maxHeight: this.maxLabelHeight,
+            fontSize: this.get('fontSize')
+        });
     }
     
     updateDateTime() {
@@ -117,11 +183,15 @@ export class MainViewModel extends ObservableBase {
         this.set('fontSize', newFontSize);
         this.set('fontFamily', newFontFamily);
         
-        // Restart text shifting if enabled
-        if (this.shiftInterval) {
-            clearInterval(this.shiftInterval);
-            this.setupTextShifting();
-        }
+        // Recalculate label dimensions when font size changes
+        setTimeout(() => {
+            this.calculateMaxLabelDimensions();
+            // Restart text shifting if enabled with new bounds
+            if (this.shiftInterval) {
+                clearInterval(this.shiftInterval);
+                this.setupTextShifting();
+            }
+        }, 100);
     }
     
     openSettings() {
@@ -173,13 +243,24 @@ export class MainViewModel extends ObservableBase {
     private setupTextShifting() {
         if (appSettings.getBoolean('textShifting', true)) {
             const frequency = appSettings.getNumber('shiftFrequency', 60) * 1000; // Convert to milliseconds
-            const amountX = appSettings.getNumber('shiftAmountX', 10);
-            const amountY = appSettings.getNumber('shiftAmountY', 5);
+            let amountX = appSettings.getNumber('shiftAmountX', 10);
+            let amountY = appSettings.getNumber('shiftAmountY', 5);
+            
+            // Calculate safe shift bounds to prevent text from being cropped
+            const safeBounds = this.calculateSafeShiftBounds(amountX, amountY);
+            amountX = safeBounds.maxX;
+            amountY = safeBounds.maxY;
             
             console.log('Setting up text shifting:', { 
                 frequency, 
-                amountX, 
-                amountY
+                requestedX: appSettings.getNumber('shiftAmountX', 10),
+                requestedY: appSettings.getNumber('shiftAmountY', 5),
+                safeAmountX: amountX,
+                safeAmountY: amountY,
+                containerWidth: this.containerWidth,
+                containerHeight: this.containerHeight,
+                maxLabelWidth: this.maxLabelWidth,
+                maxLabelHeight: this.maxLabelHeight
             });
             
             // Clear any existing interval
@@ -189,15 +270,15 @@ export class MainViewModel extends ObservableBase {
             
             // Set up new interval
             this.shiftInterval = setInterval(() => {
-                // Calculate random position within the allowed shift amounts
+                // Calculate random position within the safe shift bounds
                 const x = (Math.random() - 0.5) * amountX;
                 const y = (Math.random() - 0.5) * amountY;
                 
                 console.log('Shifting text:', { 
                     x, 
                     y,
-                    amountX,
-                    amountY
+                    safeAmountX: amountX,
+                    safeAmountY: amountY
                 });
                 
                 // Apply the shift values
@@ -215,6 +296,47 @@ export class MainViewModel extends ObservableBase {
             this.set('textShiftX', 0);
             this.set('textShiftY', 0);
         }
+    }
+    
+    private calculateSafeShiftBounds(requestedX: number, requestedY: number): { maxX: number, maxY: number } {
+        // If container dimensions aren't available yet, use screen dimensions as fallback
+        const containerW = this.containerWidth > 0 ? this.containerWidth : this.screenWidth;
+        const containerH = this.containerHeight > 0 ? this.containerHeight : this.screenHeight;
+        
+        // If label dimensions aren't available, estimate based on font size
+        const labelW = this.maxLabelWidth > 0 ? this.maxLabelWidth : ((this.get('fontSize') || 120) * 1.2 * 12);
+        const labelH = this.maxLabelHeight > 0 ? this.maxLabelHeight : ((this.get('fontSize') || 120) * 4);
+        
+        // Calculate available space from center to edge
+        // Labels are centered, so available space is (container - label) / 2
+        // Add padding of 10% to ensure text doesn't get too close to edges
+        const paddingX = containerW * 0.1;
+        const paddingY = containerH * 0.1;
+        
+        // Maximum shift in one direction (since we shift by ±amount/2)
+        const maxShiftX = (containerW - labelW) / 2 - paddingX;
+        const maxShiftY = (containerH - labelH) / 2 - paddingY;
+        
+        // The maximum safe shift range is 2x the max shift in one direction
+        // (because the shift formula uses (Math.random() - 0.5) * amount, giving ±amount/2)
+        const maxSafeX = Math.max(0, maxShiftX * 2);
+        const maxSafeY = Math.max(0, maxShiftY * 2);
+        
+        // Clamp the requested shift amounts to safe bounds
+        const safeX = Math.min(requestedX, maxSafeX);
+        const safeY = Math.min(requestedY, maxSafeY);
+        
+        console.log('Safe shift bounds calculation:', {
+            containerSize: { width: containerW, height: containerH },
+            labelSize: { width: labelW, height: labelH },
+            padding: { x: paddingX, y: paddingY },
+            maxShiftOneDirection: { x: maxShiftX, y: maxShiftY },
+            maxSafeRange: { x: maxSafeX, y: maxSafeY },
+            requested: { x: requestedX, y: requestedY },
+            finalSafe: { x: safeX, y: safeY }
+        });
+        
+        return { maxX: safeX, maxY: safeY };
     }
     
     dispose() {
