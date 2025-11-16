@@ -1,7 +1,11 @@
 node_modules/
 platforms/
 hooks/
+.idea/
+.vscode/
+dist/
 *.js.map
 *.log
 .DS_Store
 .env
+*.apk
