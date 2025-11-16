@@ -4,17 +4,23 @@ DayDate2 is a simple Day & Date app for Android. It shows the current day and da
 
 ## Quick Start (Android)
 
-- Download or build the APK and install it on your Android device:
+1. **Install prerequisites**
+   - Install [Node.js](https://nodejs.org/) (includes npm).
+   - Install the NativeScript CLI: `npm install -g nativescript` (provides the `ns` command).
+   - Install Android Studio or the Android SDK so `adb` and the required build tools are available.
+2. **Install project dependencies**
+   - From the repository root, run `npm install` to populate `node_modules`.
+3. **Build and install the APK**
 
 ```powershell
-# Build the debug APK (if needed)
+# Build the debug APK
 ns build android
 
-# Install the APK (replace path if needed)
+# Install the APK (replace the path if needed)
 adb install -r "platforms/android/app/build/outputs/apk/debug/app-debug.apk"
 ```
 
-- If installing from your device directly, enable installation from unknown sources or use Google Play if published.
+If installing directly on a device, enable installation from unknown sources or use Google Play if the app is published there.
 
 ## Using the App
 
@@ -29,8 +35,3 @@ adb install -r "platforms/android/app/build/outputs/apk/debug/app-debug.apk"
 ## Support
 
 - For issues or feature requests, open an issue in this GitHub repository: https://github.com/timnik82/DayDate2-Win/issues
-- Check the project license in `LICENSE`.
-
----
-
-If you'd like a screenshot, store link, or a translated short description added, tell me and I’ll update the README further.
