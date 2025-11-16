@@ -1,6 +1,6 @@
 # DayDate2
 
-DayDate2 is a simple Day & Date app for Android and Windows. It shows the current day and date with a minimal interface — no sign-in required.
+DayDate2 is a simple Day & Date app for Android. It shows the current day and date with a minimal interface — no sign-in required.
 
 ## Quick Start (Android)
 
